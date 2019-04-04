@@ -1,0 +1,18 @@
+image:
+  file: .gitpod.dockerfile
+ports:
+- port: 8000
+tasks:
+- name: Apache
+  command: >
+    apachectl start;
+    clear;
+    multitail /var/log/apache2/access.log -I /var/log/apache2/error.log;
+- name: Terminal
+  command: >
+    clear;
+    echo "Commands:";
+    echo " * apachectl stop";
+    echo " * apachectl start";
+    echo " * gp open /var/log/apache2/error.log";
+    echo " * gp open /var/log/apache2/access.log";
