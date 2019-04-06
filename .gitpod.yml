@@ -2,6 +2,9 @@ image:
   file: .gitpod.dockerfile
 ports:
 - port: 8000
+  onOpen: notify
+- port: 5432
+  onOpen: ignore
 tasks:
 - name: Logs
   command: >
