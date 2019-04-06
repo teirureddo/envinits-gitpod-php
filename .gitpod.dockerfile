@@ -21,7 +21,7 @@ LogFormat "%h %l %u %t \"%r\" %>s %b" common\n\
 CustomLog /var/log/apache2/access.log common\n\
 ErrorLog /var/log/apache2/error.log\n\
 <Directory />\n\
-    AllowOverride None\n\
+    AllowOverride All\n\
     Require all denied\n\
 </Directory>\n\
 DirectoryIndex index.php index.html\n\
