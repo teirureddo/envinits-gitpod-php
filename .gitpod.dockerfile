@@ -8,7 +8,6 @@ RUN apt-get update \
 
 RUN chown -R gitpod:gitpod /var/run/apache2 /var/lock/apache2 /var/log/apache2 /etc/apache2
 
-#Setup Apache
 RUN echo 'ServerRoot ${GITPOD_REPO_ROOT}\n\
 PidFile /var/run/apache2/apache.pid\n\
 User gitpod\n\
@@ -31,7 +30,8 @@ DocumentRoot "${GITPOD_REPO_ROOT}/public"\n\
 </Directory>\n\
 IncludeOptional /etc/apache2/conf-enabled/*.conf' > /etc/apache2/apache2.conf
 
-#Setup Postgres
+RUN a2enmod rewrite
+
 USER gitpod
 ENV PATH="$PATH:/usr/lib/postgresql/10/bin"
 ENV PGDATA="/home/gitpod/pg/data"
