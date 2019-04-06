@@ -3,17 +3,20 @@ image:
 ports:
 - port: 8000
 tasks:
-- name: Log
+- name: Logs
   command: >
     pg_start.sh;
     apachectl start;
     clear;
-    multitail /var/log/apache2/access.log -I /var/log/apache2/error.log;
+    multitail /var/log/apache2/access.log -I /var/log/apache2/error.log ~/pg/logs/pgsql.log;
 - name: Terminal
   command: >
     clear;
     echo "Commands:";
+    echo " * pg_stop.sh";
+    echo " * pg_start.sh";
     echo " * apachectl stop";
     echo " * apachectl start";
+    echo " * gp open ~/pg/logs/pgsql.log";
     echo " * gp open /var/log/apache2/error.log";
     echo " * gp open /var/log/apache2/access.log";
