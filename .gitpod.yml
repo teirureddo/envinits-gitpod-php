@@ -11,9 +11,10 @@ tasks:
 - name: Init & Logs
   command: >
     ( mysqld --skip-grant-tables & ) &&
-    sleep 2 &&
-    mysql -uroot -e "USE mysql; UPDATE user SET authentication_string=PASSWORD(\"123456\") WHERE user='root'; UPDATE user SET plugin=\"mysql_native_password\" WHERE user='root'; FLUSH PRIVILEGES;" &&
+    sleep 3 &&
+    ( mysql -uroot -e "USE mysql; UPDATE user SET authentication_string=PASSWORD(\"123456\") WHERE user='root'; UPDATE user SET plugin=\"mysql_native_password\" WHERE user='root'; FLUSH PRIVILEGES;" );
     mysqladmin -uroot shutdown;
+    killall mysqld;
     ( mysqld & );
     pg_start.sh;
     apachectl start;
