@@ -4,6 +4,7 @@ USER root
 
 RUN apt-get update \
  && apt-get -y install apache2 multitail postgresql postgresql-contrib mysql-server mysql-client \
+ && apt-get -y install php-cli php-bz2 php-bcmath php-gmp php-imap php-shmop php-soap php-xmlrpc php-xsl php-ldap \
  && apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/*
 
 RUN mkdir /var/run/mysqld
