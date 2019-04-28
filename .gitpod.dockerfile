@@ -25,12 +25,13 @@ LogFormat "%h %l %u %t \"%r\" %>s %b" common\n\
 CustomLog /var/log/apache2/access.log common\n\
 ErrorLog /var/log/apache2/error.log\n\
 <Directory />\n\
-    AllowOverride All\n\
+    AllowOverride None\n\
     Require all denied\n\
 </Directory>\n\
 DirectoryIndex index.php index.html\n\
 DocumentRoot "${GITPOD_REPO_ROOT}/public"\n\
 <Directory "${GITPOD_REPO_ROOT}/public">\n\
+    AllowOverride All\n\
     Require all granted\n\
 </Directory>\n\
 IncludeOptional /etc/apache2/conf-enabled/*.conf' > /etc/apache2/apache2.conf
