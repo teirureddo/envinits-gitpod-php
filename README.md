@@ -2,7 +2,7 @@
 
 用于 Gitpod 的 Apache + PHP + MySQL + PostgreSQL 环境
 
-An Apache, PHP, MySQL & PostgreSQL example for Gitpod.
+An Apache, PHP, MySQL & PostgreSQL environment for Gitpod.
 
 
 ### 尝试一下 / Try it
@@ -24,7 +24,7 @@ Copy `.gitpod.yml` and `.gitpod.dockerfile` to your project directory.
  - mysqladmin -uroot shutdown -p
  - gp open /var/log/apache2/error.log
  - gp open /var/log/apache2/access.log
- - gp open ~/pg/logs/pgsql.log
+ - gp open ~/pg/log/pgsql.log
  - gp open /var/log/mysql/error.log
  - gp open /var/log/mysql/mysql.log
 

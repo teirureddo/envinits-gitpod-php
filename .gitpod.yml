@@ -8,13 +8,13 @@ ports:
 - port: 3306
   onOpen: ignore
 tasks:
-- name: Init & Logs
+- name: Logs
   command: >
     ( mysqld & );
     pg_start.sh;
     apachectl start;
     clear;
-    multitail /var/log/apache2/access.log -I /var/log/apache2/error.log /var/log/mysql/mysql.log -I /var/log/mysql/error.log -I ~/pg/logs/pgsql.log;
+    multitail /var/log/apache2/access.log -I /var/log/apache2/error.log /var/log/mysql/mysql.log -I /var/log/mysql/error.log -I ~/pg/log/pgsql.log;
 - name: Terminal
   command: >
     clear;
