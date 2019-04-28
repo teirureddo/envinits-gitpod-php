@@ -1,21 +1,21 @@
-# EnvInits [GitPod-PHP]
+# EnvInits [Gitpod-PHP]
 
-用于GitPod的Apache + PHP + MySQL + PostgreSQL环境
+用于 Gitpod 的 Apache + PHP + MySQL + PostgreSQL 环境
 
 An Apache, PHP, MySQL & PostgreSQL example for Gitpod.
 
 
-### 尝试一下 / Try
+### 尝试一下 / Try it
 打开 / Open: https://gitpod.io#https://github.com/teirureddo/envinits-gitpod-php
 
 
-### 使用方法 / Instructions
+### 使用方法 / How to use
 把 `.gitpod.yml` 和 `.gitpod.dockerfile` 复制到您的项目目录
 
 Copy `.gitpod.yml` and `.gitpod.dockerfile` to your project directory.
 
 
-### 可用命令 / Commands
+### 可用命令 / Available commands
  - apachectl start
  - apachectl stop
  - pg_start.sh
@@ -29,17 +29,17 @@ Copy `.gitpod.yml` and `.gitpod.dockerfile` to your project directory.
  - gp open /var/log/mysql/mysql.log
 
 
-### 数据库配置 / Database
+### 数据库配置 / Database Configuration
 
 **MySQL**
-- Server: 0.0.0.0
-- Username: root
-- Password: 123456
+- 服务器 / Server: 0.0.0.0
+- 用户 / Username: root
+- 密码 / Password: 123456
 
 **PostgreSQL**
-- Server: 0.0.0.0
-- Username: (empty)
-- Password: (empty)
+- 服务器 / Server: 0.0.0.0
+- 用户 / Username: (empty)
+- 密码 / Password: (empty)
 
 
 ### 这个项目参考或使用 / Acknowledgement

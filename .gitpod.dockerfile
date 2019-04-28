@@ -73,4 +73,9 @@ RUN echo '#!/bin/bash\npg_ctl -D ~/pg/data/ -l ~/pg/logs/pgsql.log -o "-k ~/pg/s
 RUN chmod +x ~/pg/scripts/*
 ENV PATH="$PATH:$HOME/pg/scripts"
 
+RUN ( mysqld --skip-grant-tables & ) \
+    && sleep 3 \
+    && ( mysql -uroot -e "USE mysql; UPDATE user SET authentication_string=PASSWORD(\"123456\") WHERE user='root'; UPDATE user SET plugin=\"mysql_native_password\" WHERE user='root'; FLUSH PRIVILEGES;" ) \
+    && mysqladmin -uroot -p123456 shutdown;
+
 USER root
