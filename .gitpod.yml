@@ -10,7 +10,7 @@ ports:
 tasks:
 - name: Logs
   command: >
-    ( mysqld & );
+    mysqld --daemonize;
     pg_start.sh;
     apachectl start;
     clear;
@@ -23,5 +23,5 @@ tasks:
     echo " * apachectl stop";
     echo " * pg_start.sh";
     echo " * pg_stop.sh";
-    echo " * mysqld &";
+    echo " * mysqld --daemonize";
     echo " * mysqladmin -uroot shutdown -p";

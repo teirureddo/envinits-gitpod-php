@@ -20,7 +20,7 @@ Copy `.gitpod.yml` and `.gitpod.dockerfile` to your project directory.
  - apachectl stop
  - pg_start.sh
  - pg_stop.sh
- - mysqld &
+ - mysqld --daemonize
  - mysqladmin -uroot shutdown -p
  - gp open /var/log/apache2/error.log
  - gp open /var/log/apache2/access.log
