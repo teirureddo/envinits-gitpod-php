@@ -13,7 +13,7 @@ RUN mkdir /var/run/mysqld \
 
 RUN a2enmod rewrite
 
-RUN  echo 'worker_processes auto;\n\
+RUN echo 'worker_processes auto;\n\
 pid /var/run/nginx/nginx.pid;\n\
 include /etc/nginx/modules-enabled/*.conf;\n\
 env NGINX_DOCROOT_IN_REPO;\n\
@@ -34,8 +34,8 @@ http {\n\
 	gzip on;\n\
 	include /etc/nginx/conf.d/*.conf;\n\
     server {\n\
-        set_by_lua $nginx_docroot_in_repo   'return os.getenv("NGINX_DOCROOT_IN_REPO")';\n\
-        set_by_lua $gitpod_repo_root        'return os.getenv("GITPOD_REPO_ROOT")';\n\
+        set_by_lua $nginx_docroot_in_repo   '"'"'return os.getenv("NGINX_DOCROOT_IN_REPO")'"'"';\n\
+        set_by_lua $gitpod_repo_root        '"'"'return os.getenv("GITPOD_REPO_ROOT")'"'"';\n\
         listen         0.0.0.0:8002;\n\
         location / {\n\
             root $gitpod_repo_root/$nginx_docroot_in_repo;\n\
