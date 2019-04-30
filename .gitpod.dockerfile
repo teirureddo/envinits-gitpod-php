@@ -13,6 +13,37 @@ RUN mkdir /var/run/mysqld \
 
 RUN a2enmod rewrite
 
+RUN  echo 'worker_processes auto;\n\
+pid /var/run/nginx/nginx.pid;\n\
+include /etc/nginx/modules-enabled/*.conf;\n\
+env NGINX_DOCROOT_IN_REPO;\n\
+env GITPOD_REPO_ROOT;\n\
+events {\n\
+	worker_connections 768;\n\
+	multi_accept on;\n\
+}\n\
+http {\n\
+	sendfile on;\n\
+	tcp_nopush on;\n\
+	tcp_nodelay on;\n\
+	keepalive_timeout 65;\n\
+	types_hash_max_size 2048;\n\
+	include /etc/nginx/mime.types;\n\
+	access_log /var/log/nginx/access.log;\n\
+	error_log /var/log/nginx/error.log;\n\
+	gzip on;\n\
+	include /etc/nginx/conf.d/*.conf;\n\
+    server {\n\
+        set_by_lua $nginx_docroot_in_repo   'return os.getenv("NGINX_DOCROOT_IN_REPO")';\n\
+        set_by_lua $gitpod_repo_root        'return os.getenv("GITPOD_REPO_ROOT")';\n\
+        listen         0.0.0.0:8002;\n\
+        location / {\n\
+            root $gitpod_repo_root/$nginx_docroot_in_repo;\n\
+            index index.html index.htm index.php;\n\
+        }\n\
+    }\n\
+}' > /etc/nginx/nginx.conf
+
 RUN echo '[mysqld_safe]\n\
 socket		= /var/run/mysqld/mysqld.sock\n\
 nice		= 0\n\
