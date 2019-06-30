@@ -8,8 +8,8 @@ RUN apt-get update \
  && apt-get -y install php-amqp php-apcu php-imagick php-memcached php-mongodb php-oauth php-redis\
  && apt-get clean && rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/*
 
-RUN mkdir /var/run/mysqld \
- && chown -R gitpod:gitpod /var/run/mysqld /usr/share/mysql /var/lib/mysql /var/log/mysql /etc/mysql
+RUN mkdir /var/run/mysqld /run/php \
+ && chown -R gitpod:gitpod /var/run/mysqld /run/php /usr/share/mysql /var/lib/mysql /var/log/mysql /etc/mysql
 
 RUN a2enmod rewrite
 
